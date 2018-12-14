@@ -17,12 +17,12 @@ public class CalculateTest {
 	* Test echo.
 	*/
 	@Test
-	public void inputNameReturnThreeEchoPlusName(){
+	public void inputNameReturnThreeEchoPlusName() {
 	String input = "John Connor";
 	String expect = "Echo, echo, echo: John Connor";
 	Calculate calc = new Calculate();
 	String result = calc.echo(input);
-	assertThat(result,is(expect));
+	assertThat(result, is(expect));
 	}
 	
 	
