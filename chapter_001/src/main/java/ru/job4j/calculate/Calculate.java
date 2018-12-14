@@ -6,7 +6,6 @@ package ru.job4j.calculate;
  *@since 09.12.2018
 */
 public class Calculate {
-	
 	/**
 	 * main.
 	 * @param args - некий строковый массив.
@@ -15,4 +14,13 @@ public class Calculate {
 		System.out.println("Hello, world!");
 	}
 	
+		
+	/**
+	* Method echo
+	* @param Your name
+	* @return Echo plus your name.
+	*/
+	public String echo(String name){
+		return "Echo, echo, echo: "+name;
+	}
 }
