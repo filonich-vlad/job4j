@@ -13,11 +13,11 @@ public class Calculate {
 	public static void main(String[] args) {
 		System.out.println("Hello, world!");
 	}
-	
-		
+
+
 	/**
 	* Method echo
-	* @param Your name
+	* @param name - your name
 	* @return Echo plus your name.
 	*/
 	public String echo(String name) {
