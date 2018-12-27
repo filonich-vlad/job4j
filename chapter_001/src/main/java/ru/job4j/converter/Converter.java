@@ -1,5 +1,8 @@
 package ru.job4j.converter;
 
+/**
+ * @author Vladislav Filonich
+ */
 public class Converter {
     /**
      * Конвертируем рубли в евро.
