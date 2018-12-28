@@ -1,4 +1,4 @@
-package ru.job4j.fit.calculator;
+package ru.job4j.fitcalc;
 
 public class Fit {
 
