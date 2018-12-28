@@ -1,4 +1,4 @@
-package ru.job4j.fitCalculator;
+package ru.job4j.fit.calculator;
 
 import org.junit.Test;
 

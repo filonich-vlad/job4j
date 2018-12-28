@@ -6,6 +6,7 @@ import java.lang.Math.*;
  * @version $Id$
  * @since 0.1
  */
+@SuppressWarnings("CanBeFinal")
 public class Point {
     private int x;
     private int y;

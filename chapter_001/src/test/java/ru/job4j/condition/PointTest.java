@@ -8,9 +8,9 @@ public class PointTest {
 
     @Test
     public void when00and34then5() {
-        Point point_1 = new Point(0, 0);
-        Point point_2 = new Point(3, 4);
-        var result = point_1.distanceTo(point_2);
+        Point point1 = new Point(0, 0);
+        Point point2 = new Point(3, 4);
+        var result = point1.distanceTo(point2);
         assertThat(result, is(5D));
     }
 }
