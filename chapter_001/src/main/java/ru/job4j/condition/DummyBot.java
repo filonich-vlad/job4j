@@ -1,4 +1,4 @@
-package ru.job4j.dumbot;
+package ru.job4j.condition;
 
 /**
  * @author Vladislav Filonich
