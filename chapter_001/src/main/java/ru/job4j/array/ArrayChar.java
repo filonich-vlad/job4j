@@ -14,19 +14,18 @@ public class ArrayChar {
      */
     public boolean startWith(String prefix) {
         char[] value = prefix.toCharArray();
-
+        boolean ans;
         if (value.length > data.length) {
-            return false;
-        }
-        if (value.length == 0) {
-            return true;
-        }
-
+            ans = false;
+        } else if (value.length == 0) {
+            ans = true;
+        } else {
+        ans = true;
         for (int j = 0; j < value.length; j++) {
             if (data[j] != value[j]) {
-                return false;
+                ans = false;
             }
         }
-        return true;
     }
+        return ans;}
 }
