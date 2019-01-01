@@ -27,5 +27,6 @@ public class ArrayChar {
             }
         }
     }
-        return ans;}
+        return ans;
+    }
 }
