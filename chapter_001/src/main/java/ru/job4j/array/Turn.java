@@ -1,6 +1,11 @@
 package ru.job4j.array;
 
 public class Turn {
+    /**
+     * Переворачивает массив задом наперёд.
+     * @param array - массив-пациент.
+     * @return перевёрнутый массив.
+     */
     public int[] back(int[] array) {
         int temp;
         int len = array.length;

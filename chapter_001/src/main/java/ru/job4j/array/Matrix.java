@@ -1,6 +1,11 @@
 package ru.job4j.array;
 
 public class Matrix {
+    /**
+     * Делаем табличцу уможения.
+     * @param size размер таблица.
+     * @return массив заполненый, как таблица умножения.
+     */
     public int[][] multiple(int size) {
         int[][] table = new int[size][size];
         for (int i = 0; i < size; i++) {

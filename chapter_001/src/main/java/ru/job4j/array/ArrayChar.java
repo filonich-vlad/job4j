@@ -24,6 +24,7 @@ public class ArrayChar {
         for (int j = 0; j < value.length; j++) {
             if (data[j] != value[j]) {
                 ans = false;
+                break;
             }
         }
     }
