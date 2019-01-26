@@ -2,7 +2,7 @@ package Profession;
 
 public class Patient {
     private String name;
-    String disease;
+    private String disease;
 
     public Patient (String name, String disease) {
         this.name = name;
