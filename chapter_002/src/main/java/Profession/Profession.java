@@ -1,6 +1,6 @@
 package Profession;
 
 public class Profession {
-    protected String name;
-    protected String profession;
+    private String name;
+    private String profession;
 }
