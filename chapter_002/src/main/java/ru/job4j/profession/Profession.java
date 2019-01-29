@@ -1,6 +1,14 @@
 package ru.job4j.profession;
 
 public class Profession {
-    protected String name;
-    protected String profession;
+
+    private String name;
+    private String profession;
+
+    Profession(String name, String profession) {
+        this.name = name;
+        this.profession = profession;
+    }
+
+
 }

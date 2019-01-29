@@ -58,12 +58,12 @@ public class Tracker {
         boolean result = false;
         for (int ind = 0; ind != items.length; ind++) {
             if (items[ind].getId().equals(id)) {
-                System.arraycopy(items, ind + 1, items, ind, this.items.length - ind - 1);
-                items[99] = null;
+                System.arraycopy(items, ind + 1, this.items, ind, this.items.length - ind - 1);
                 result = true;
                 break;
             }
         }
+        position--;
         return result;
     }
 
@@ -72,29 +72,8 @@ public class Tracker {
      * @return массив заявок без null'ов.
      */
     public Item[] findAll() {
-        int pos = 0;
-        Item[] result = new Item[this.items.length - countNulls(this.items)];
-        for (Item item : this.items) {
-            if (item != null) {
-                result[pos++] = item;
-            }
-        }
-        return result;
+        return Arrays.copyOf(this.items, position);
     }
-
-    /**
-     * Метод подсчитывает число null-элементов, чтобы знать длину результирующего массива для findAll().
-     * @return количество null'ов.
-     */
-    private int countNulls(Item[] items) {
-        int count = 0;
-            for (Item item : this.items) {
-                if (item == null) {
-                    count++;
-                }
-            }
-            return count;
-        }
 
     /**
      * Получение списка по имени.
@@ -102,14 +81,14 @@ public class Tracker {
      * @return массив заявок с именем name.
      */
     public Item[] findByName(String name) {
-        Item[] result = new Item[countName(name)];
+        Item[] result = new Item[this.items.length];
         int ind = 0;
         for (Item item : this.items) {
             if (item != null && item.getName().equals(name)) {
                 result[ind++] = item;
             }
         }
-        return result;
+        return Arrays.copyOf(result, ind);
     }
 
     /**

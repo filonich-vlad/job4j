@@ -2,8 +2,7 @@ package ru.job4j.profession;
 
 public class Engineer extends Profession {
     public Engineer() {
-        this.name = "Elon Musk";
-        this.profession = "Engineer";
+        super("Elon Musk", "Engineer");
     }
 
     public void build() {
