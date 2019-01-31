@@ -60,10 +60,10 @@ public class Tracker {
             if (items[ind].getId().equals(id)) {
                 System.arraycopy(items, ind + 1, this.items, ind, this.items.length - ind - 1);
                 result = true;
+                position--;
                 break;
             }
         }
-        position--;
         return result;
     }
 
@@ -89,20 +89,6 @@ public class Tracker {
             }
         }
         return Arrays.copyOf(result, ind);
-    }
-
-    /**
-     * Метод считает item'ы с именем name, чтобы знать длину результирующено массива для findByName().
-     * @return число заявок с именем name.
-     */
-    private int countName(String name) {
-        int count = 0;
-        for (Item item : this.items) {
-            if (item != null && item.getName().equals(name)) {
-                count++;
-            }
-        }
-        return count;
     }
 
     /**
