@@ -34,12 +34,13 @@ public class Tracker {
 
     /**
      * Редактирование заявки.
+     * Заменяет заявку с ключом id, на новую.
      * @param id - ключ заявки.
      * @param item - новая заявка.
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < position; index++) {
             if (items[index].getId().equals(id)) {
                 item.setId(id);
                 items[index] = item;
@@ -57,7 +58,7 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int ind = 0; ind != items.length; ind++) {
+        for (int ind = 0; ind < position; ind++) {
             if (items[ind].getId().equals(id)) {
                 System.arraycopy(items, ind + 1, this.items, ind, this.items.length - ind - 1);
                 result = true;

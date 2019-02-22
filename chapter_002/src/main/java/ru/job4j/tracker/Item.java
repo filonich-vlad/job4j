@@ -12,6 +12,12 @@ public class Item {
     public Item() {
     }
 
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.create = 0;
+    }
+
     public Item(String name, String description, long create) {
         this.name = name;
         this.description = description;
