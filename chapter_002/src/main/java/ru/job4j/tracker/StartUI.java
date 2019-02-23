@@ -162,10 +162,11 @@ public class StartUI {
      */
 
     private void show() {
-        if (tracker.findAll().length == 0) {
+        Item[] items = tracker.findAll();
+        if (items.length == 0) {
             System.out.println("Нет ни одной заявки.");
         } else {
-            for (Item item : tracker.findAll()) {
+            for (Item item : items) {
                 System.out.printf("Имя : %s, id : %s%n", item.getName(), item.getId());
             }
         }
