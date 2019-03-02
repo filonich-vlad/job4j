@@ -4,7 +4,7 @@ public class StubInput implements Input {
     private String[] answers;
     private int position = 0;
 
-    public void stubInput(String[] answers) {
+    public StubInput(String[] answers) {
         this.answers = answers;
     }
 
