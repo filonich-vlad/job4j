@@ -16,11 +16,15 @@ public class PaintTest {
         assertThat(new String(out.toByteArray()),
                 is(
                         new StringBuilder()
-                        .append("+++++++\n")
-                        .append("+     +\n")
-                        .append("+     +\n")
-                        .append("+++++++\n")
-                        .append(System.lineSeparator())
+                        .append("+++++++")
+                        .append(System.getProperty("line.separator"))
+                        .append("+     +")
+                        .append(System.getProperty("line.separator"))
+                        .append("+     +")
+                        .append(System.getProperty("line.separator"))
+                        .append("+++++++")
+                        .append(System.getProperty("line.separator"))
+                        .append(System.getProperty("line.separator"))
                         .toString()
                 ));
         System.setOut(stdout);

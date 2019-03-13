@@ -12,10 +12,14 @@ public class SquareTest {
                     square.draw(),
                     is(
                             new StringBuilder()
-                                    .append("+++++++\n")
-                                    .append("+     +\n")
-                                    .append("+     +\n")
-                                    .append("+++++++\n")
+                                    .append("+++++++")
+                                    .append(System.getProperty("line.separator"))
+                                    .append("+     +")
+                                    .append(System.getProperty("line.separator"))
+                                    .append("+     +")
+                                    .append(System.getProperty("line.separator"))
+                                    .append("+++++++")
+                                    .append(System.getProperty("line.separator"))
                                     .toString()
                     )
             );
