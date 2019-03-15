@@ -16,14 +16,14 @@ public class PaintTest {
 
     @Before
     public void loadOutput() {
-        System.out.println("Execute before each test...");
+        // System.out.println("Execute before each test...");
         System.setOut(new PrintStream(this.out));
     }
 
     @After
     public void backOutput() {
         System.setOut(this.stdout);
-        System.out.println("Execute after each test...");
+        // System.out.println("Execute after each test...");
     }
 
     @Test
