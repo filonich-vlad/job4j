@@ -10,6 +10,14 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
+    public int[] getRange() {
+        int[] out = new int[this.actions.length];
+        for (int i = 0; i < this.actions.length; i++) {
+            out[i] = i;
+        }
+        return out;
+    }
+
     public void fillActions() {
         this.actions[0] = new AddItem();
         this.actions[1] = new ShowItems();

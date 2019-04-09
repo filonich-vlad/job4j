@@ -26,7 +26,7 @@ public class StartUI {
      * @param args - аргументы для входа.
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 
     public void init() {
@@ -34,8 +34,7 @@ public class StartUI {
         menu.fillActions();
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Введите пункт меню : "));
-            menu.select(key);
+            menu.select(input.ask("Введите пункт меню : ", menu.getRange()));
         } while (!"y".equals(this.input.ask("Exit? (y) ")));
     }
 }
