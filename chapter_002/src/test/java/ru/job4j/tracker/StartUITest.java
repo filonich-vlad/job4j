@@ -120,4 +120,43 @@ private String menu = "Меню:"
         assertThat(new String(out.toByteArray()), is(result));
     }
 
+    @Test
+    public void whenTypeNAN() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test name", "desc"));
+        Input input = new ValidateInput(new StubInput(new String[]{"a", "5", "test name", "y"}));
+        String result = menu
+                + sep
+                + "Введите корректные данные: "
+                + sep
+                + "Имя : test name"
+                + sep
+                + "id : "
+                + item.getId()
+                + sep
+                + "Описание : desc"
+                + sep;
+        new StartUI(input, tracker).init();
+        assertThat(new String(out.toByteArray()), is(result));
+    }
+
+    @Test
+    public void whenTypeNotInOptionsRange() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test name", "desc"));
+        Input input = new ValidateInput(new StubInput(new String[]{"-1", "5", "test name", "y"}));
+        String result = menu
+                + sep
+                + "Введите число из верного диапазона: "
+                + sep
+                + "Имя : test name"
+                + sep
+                + "id : "
+                + item.getId()
+                + sep
+                + "Описание : desc"
+                + sep;
+        new StartUI(input, tracker).init();
+        assertThat(new String(out.toByteArray()), is(result));
+    }
 }

@@ -1,15 +1,28 @@
 package ru.job4j.tracker;
 
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
+
+    private final Input input;
+
+    public ValidateInput(Input input) {
+        this.input =  input;
+    }
+
+    @Override
+    public String ask(String question) {
+        return this.input.ask(question);
+    }
+
+    @Override
     public int ask(String question, int[] range) {
         int value = -1;
         boolean invalid = true;
         do {
             try {
-                value = super.ask(question, range);
+                value = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
-                System.out.println("Введите число из верного диапазона");
+                System.out.println("Введите число из верного диапазона: ");
             } catch (NumberFormatException nfe) {
                 System.out.println("Введите корректные данные: ");
             }

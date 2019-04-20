@@ -26,7 +26,7 @@ public class StartUI {
      * @param args - аргументы для входа.
      */
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
     }
 
     public void init() {
