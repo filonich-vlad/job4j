@@ -25,14 +25,14 @@ public class BishopBlack implements Figure {
     @Override
     public Cell[] way(Cell source, Cell dest) {
         if (!isDiagonal(source, dest)) {
-            throw new ImpossibleMoveException("Bishop moves diagonally.");
+            throw new ImpossibleMoveException("Bishop has to move diagonally.");
         }
         Cell[] steps = new Cell[Cell.stepsSize(source, dest)];
-        steps[0] = source;
+        Cell[] allCells = Cell.values();
         int deltaX = source.x < dest.x ? 1 : -1;
         int deltaY = source.y < dest.y ? 1 : -1;
-        for (int i = 1; i < steps.length; i++) {
-            steps[i] = new Cell();
+        for (int i = 1; i <= steps.length; i++) {
+            steps[i - 1] = allCells[source.ordinal() + 8*deltaX*i + deltaY*i];
         }
         return steps;
     }

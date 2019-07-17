@@ -2,6 +2,7 @@ package ru.job4j.chess.firuges.black;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+import ru.job4j.chess.firuges.ImpossibleMoveException;
 
 /**
  *
@@ -11,6 +12,9 @@ import ru.job4j.chess.firuges.Figure;
  */
 public class RookBlack implements Figure {
     private final Cell position;
+
+    Cell[] allCells = Cell.values();
+
 
     public RookBlack(final Cell position) {
         this.position = position;
@@ -23,11 +27,29 @@ public class RookBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        Cell[] steps = new Cell[0];
-        if (source.x == dest.x || source.y == dest.y) {
-            steps = new Cell[] { dest };
+        Cell[] steps = new Cell[Cell.stepsSize(source, dest)];
+        if (isHorizontal(source, dest)) {
+            int deltaY = source.y < dest.y ? 1 : -1;
+            for (int i = 1; i <= steps.length; i++) {
+                steps[i - 1] = allCells[source.ordinal() + deltaY * i];
+            }
+        } else if (isVertical(source, dest)) {
+            int deltaX = source.x < dest.x ? 1 : -1;
+            for (int i = 1; i <= steps.length; i++) {
+                steps[i - 1] = allCells[source.ordinal() + 8 * deltaX * i];
+            }
+        } else {
+            throw new ImpossibleMoveException("Rook has to move in a straight line.");
         }
         return steps;
+    }
+
+    private boolean isHorizontal(Cell source, Cell dest) {
+        return source.x == dest.x;
+    }
+
+    private boolean isVertical(Cell source, Cell dest) {
+        return source.y == dest.y;
     }
 
     @Override

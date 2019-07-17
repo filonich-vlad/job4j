@@ -24,9 +24,9 @@ public class PawnWhite implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        Cell[] steps = new Cell[0];
+        Cell[] steps = new Cell[1];
         if (source.y == dest.y - 1 && source.x == dest.x) {
-            steps = new Cell[] { dest };
+            steps[0] = dest;
         }
         return steps;
     }

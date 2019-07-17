@@ -2,6 +2,7 @@ package ru.job4j.chess.firuges.white;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+import ru.job4j.chess.firuges.ImpossibleMoveException;
 
 /**
  *
@@ -23,7 +24,13 @@ public class KnightWhite implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        return new Cell[] { dest };
+        Cell[] steps = new Cell[1];
+        if (Math.abs(source.y - dest.y) * Math.abs(source.x - dest.x) == 2) {
+            steps[0] = dest;
+        } else {
+            throw new ImpossibleMoveException("The knight can't move this way.");
+        }
+        return steps;
     }
 
     @Override

@@ -2,6 +2,8 @@ package ru.job4j.chess.firuges.white;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+import ru.job4j.chess.firuges.ImpossibleMoveException;
+
 
 /**
  *
@@ -23,9 +25,15 @@ public class BishopWhite implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        Cell[] steps = new Cell[0];
-        if (Math.abs(source.y - dest.y) == Math.abs(source.x - dest.x)) {
-            steps = new Cell[] { dest };
+        if (!isDiagonal(source, dest)) {
+            throw new ImpossibleMoveException("Bishop has to move diagonally.");
+        }
+        Cell[] steps = new Cell[Cell.stepsSize(source, dest)];
+        Cell[] allCells = Cell.values();
+        int deltaX = source.x < dest.x ? 1 : -1;
+        int deltaY = source.y < dest.y ? 1 : -1;
+        for (int i = 1; i <= steps.length; i++) {
+            steps[i - 1] = allCells[source.ordinal() + 8*deltaX*i + deltaY*i];
         }
         return steps;
     }
@@ -33,5 +41,9 @@ public class BishopWhite implements Figure {
     @Override
     public Figure copy(Cell dest) {
         return new BishopWhite(dest);
+    }
+
+    private boolean isDiagonal(Cell source, Cell dest) {
+        return Math.abs(source.y - dest.y) == Math.abs(source.x - dest.x);
     }
 }
