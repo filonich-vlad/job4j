@@ -31,17 +31,17 @@ public class QeenWhite implements Figure {
             int deltaX = source.x < dest.x ? 1 : -1;
             int deltaY = source.y < dest.y ? 1 : -1;
             for (int i = 1; i <= steps.length; i++) {
-                steps[i - 1] = allCells[source.ordinal() + 8*deltaX*i + deltaY*i];
+                steps[i - 1] = allCells[source.ordinal() + 8 * deltaX * i + deltaY * i];
             }
         } else if (isHorizontal(source, dest)) {
             int deltaY = source.y < dest.y ? 1 : -1;
             for (int i = 1; i <= steps.length; i++) {
-                steps[i - 1] = allCells[source.ordinal() + deltaY*i];
+                steps[i - 1] = allCells[source.ordinal() + deltaY * i];
             }
         } else if (isVertical(source, dest)) {
             int deltaX = source.x < dest.x ? 1 : -1;
             for (int i = 1; i <= steps.length; i++) {
-                steps[i - 1] = allCells[source.ordinal() + 8*deltaX*i];
+                steps[i - 1] = allCells[source.ordinal() + 8 * deltaX * i];
             }
         } else {
             throw new ImpossibleMoveException("Invalid move for the queen.");

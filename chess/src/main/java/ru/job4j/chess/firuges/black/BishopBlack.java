@@ -32,7 +32,7 @@ public class BishopBlack implements Figure {
         int deltaX = source.x < dest.x ? 1 : -1;
         int deltaY = source.y < dest.y ? 1 : -1;
         for (int i = 1; i <= steps.length; i++) {
-            steps[i - 1] = allCells[source.ordinal() + 8*deltaX*i + deltaY*i];
+            steps[i - 1] = allCells[source.ordinal() + 8 * deltaX * i + deltaY * i];
         }
         return steps;
     }
