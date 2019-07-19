@@ -48,7 +48,7 @@ private String menu = "Меню:"
                 + sep
                 + "----------- Добавление новой заявки -----------"
                 + sep
-                + "------------ Новая заявка с id = " + tracker.findAll()[0].getId() + " добавлена.-----"
+                + "------------ Новая заявка с id = " + tracker.findAll().get(0).getId() + " добавлена.-----"
                 + sep;
         assertThat(new String(out.toByteArray()), is(result));
     }

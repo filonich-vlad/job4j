@@ -8,7 +8,6 @@ import static org.hamcrest.core.Is.is;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class SortUserTest {
 

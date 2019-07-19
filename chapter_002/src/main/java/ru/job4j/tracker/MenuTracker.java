@@ -1,23 +1,16 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private ArrayList<UserAction> actions = new ArrayList<>();
+    private List<UserAction> actions = new ArrayList<>();
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
-    }
-
-    public int[] getRange2() {
-        int[] out = new int[this.actions.size()];
-        for (int i = 0; i < this.actions.size(); i++) {
-            out[i] = i;
-        }
-        return out;
     }
 
     public ArrayList<Integer> getRange() {
@@ -105,8 +98,8 @@ public class MenuTracker {
         }
 
         public void execute(Input input, Tracker tracker) {
-            Item[] items = tracker.findAll();
-            if (items.length == 0) {
+            List<Item> items = tracker.findAll();
+            if (items.isEmpty()) {
                 System.out.println("Нет ни одной заявки.");
             } else {
                 for (Item item : items) {
@@ -158,8 +151,8 @@ public class MenuTracker {
 
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Введите имя заявки: ");
-            Item[] items = tracker.findByName(name);
-            if (items.length == 0) {
+            List<Item> items = tracker.findByName(name);
+            if (items.isEmpty()) {
                 System.out.println("Заявок с таким именем нет");
             } else {
                 for (Item item : items) {

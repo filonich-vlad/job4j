@@ -9,9 +9,6 @@ public class Item {
 
     public long create;
 
-    public Item() {
-    }
-
     public Item(String name, String description) {
         this.name = name;
         this.description = description;
