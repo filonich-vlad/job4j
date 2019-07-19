@@ -1,30 +1,40 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[6];
+    private ArrayList<UserAction> actions = new ArrayList<>();
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
 
-    public int[] getRange() {
-        int[] out = new int[this.actions.length];
-        for (int i = 0; i < this.actions.length; i++) {
+    public int[] getRange2() {
+        int[] out = new int[this.actions.size()];
+        for (int i = 0; i < this.actions.size(); i++) {
             out[i] = i;
         }
         return out;
     }
 
+    public ArrayList<Integer> getRange() {
+        ArrayList<Integer> out = new ArrayList<>();
+        for (int i = 0; i < this.actions.size(); i++) {
+            out.add(i);
+        }
+        return out;
+    }
+
     public void fillActions() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeleteItem();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
+        this.actions.add(new AddItem());
+        this.actions.add(new ShowItems());
+        this.actions.add(new EditItem());
+        this.actions.add(new DeleteItem());
+        this.actions.add(new FindById());
+        this.actions.add(new FindByName());
     }
 
     /**
@@ -32,7 +42,7 @@ public class MenuTracker {
      * @param key - key of action.
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     public void show() {
