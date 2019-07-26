@@ -2,7 +2,7 @@ package ru.job4j.sort;
 
 import static java.lang.Integer.compare;
 
-public class User implements Comparable<User>{
+public class User implements Comparable<User> {
     private int age;
     private String name;
 
